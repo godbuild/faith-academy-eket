@@ -1,0 +1,13 @@
+{
+  "name": "Faith Academy, Eket",
+  "version": "1.0.1",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "authors": "Gideon Williams, Godbuild Michael",
+  "license": "ISC",
+  "description": "This Web site is created for the purpose of advertising our school online whereby people can view our resources and apply for admissions."
+}

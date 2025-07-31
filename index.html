@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Rendering-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Title-->
+  <title>Faith Academy Day Secondary School, Eket</title>
+    <!-- Favicon -->
+    <link rel="icon" href="media/logo/falogo.png" type="image/png">
+  <!--Font Awesome Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  background-color: grey;
+  color: #fff;
+}
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+			font-weight: bold;
+      border: 2px solid #fff;
+			width: 60%;
+			height: 30%;
+      background: none;
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: border 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      animation: pulse 1s infinite;
+      border: none;
+			background: rgb(87 169 200);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgb(87 169 200);
+      }
+      70% {
+        transform: scale(1.01);
+        box-shadow: 0 0 0 10px rgb(87 169 200);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgb(87 169 200);
+      }
+    }
+header {
+  background: linear-gradient(135deg, rgb(87 169 200), rgb(0, 5, 0));
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+nav {
+  background: rgb(0, 5, 0);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+nav a {
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  background-color: rgba(151, 147, 147, 0.514);
+  transition: all 1.5s ease;
+}
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  background: rgb(0, 5, 0);
+  margin-top: 20px;
+  border-radius: 20px 0 20px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.575);
+  transition: all 1.0s ease;
+}
+  section:hover {
+  transform: translateY(-10px);
+}
+h2 {
+  border-bottom: 2px solid rgb(87 169 200);
+  padding-bottom: 5px;
+}
+h3 {
+  margin-bottom: 0.1px;
+  margin-top: 0.1px;
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+}
+h3:hover{
+  text-decoration: underline;
+}
+ul {
+  line-height: 1.8;
+}
+.class-range, .features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+.class-box {
+  flex: 1 1 30%;
+  background: linear-gradient(135deg, rgb(87 169 200), rgb(0, 5, 0));
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 18px;
+  padding: 20px;
+  border: 20px 0 20px 0;
+  border-color: rgb(49, 131, 2);
+  border-radius: 40px 0 40px 0;
+}
+#header img {
+margin: 1px;
+width: 120px;
+height: 120px;
+border-radius: 23.4%;
+}
+.words {
+  max-width: 600px;
+  margin: 2px auto;
+  position: relative;
+}
+.wordings {
+  display: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+.wordings.active {
+  display: block;
+}
+footer {
+  border-top: 4px solid black;
+  background: linear-gradient(135deg, rgb(87 169 200), rgb(0, 5, 0));
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin-top: 40px;
+}
+/* Principal message section styling */
+#principal-message {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, rgb(87 169 200), rgb(0, 5, 0));
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+#principal-message h2 {
+  text-align: center;
+  border-bottom: none;
+}
+#principal-message h3 {
+  align-items: right;
+  text-align: right;
+  border-bottom: none;
+}
+#principal-message h3:hover {
+  text-decoration: none;
+}
+#principal-message img {
+  display: block;
+  margin: 10px auto;
+  max-width: 500px;
+  width: 50%;
+	border: 15px solid rgb(87 169 200 / 57%) !important;
+  border-radius: 30px;
+}
+#principal-message p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+  margin-top: 20px;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgb(87 169 200), rgb(5, 5, 0));
+  padding: 0px;
+}
+.overlay-content {
+  background-color: white;
+  width: 90%;
+  margin: 70px;
+  padding: 20px;
+  border-radius: 10px;
+  animation: slideDown 0.3s ease;
+}
+
+.gallery {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgb(87 169 200), rgb(5, 5, 0));
+  padding: 0px;
+}
+.gallery-content {
+  background-color: white;
+  width: 90%;
+  margin: 70px;
+  padding: 20px;
+  border-radius: 10px;
+  animation: slideDown 0.3s ease;
+}
+.back-button {
+      position: absolute;
+      top: 20px;
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 20%;
+      cursor: pointer;
+      z-index: 90;
+      width: 70px;
+      height: 30.9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+  .back-button {
+      left: 20px;
+    }
+.back-button:hover {
+  background: 3px solid 15px solid rgb(87 169 200 / 57%) !important;
+  border: none;
+  animation: none;
+}
+* {
+  box-sizing: border-box;
+  }
+.carousel {
+  position: relative;
+  width: 90%;
+  height: 450px;
+  margin: 1px auto;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(59, 58, 58, 0.541);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img,
+.slide video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  z-index: 2;
+  position: relative;
+  text-align: center;
+}
+
+.caption h2 {
+  margin: 0 0 5px;
+  font-size: 20px;
+}
+
+.caption p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  z-index: 3;
+  border-radius: 60%;
+}
+.arrow:hover {
+  background: none;
+  animation: none;
+  border: 3px solid 15px solid rgb(87 169 200 / 57%) !important;
+  box-shadow: 0 5px 15px rgba(24, 66, 18, 0.5);
+  }
+
+.arrow.left {
+  left: 8px;
+}
+
+.arrow.right {
+  right: 8px;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #bbb;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #00b9ff;
+}
+
+.news-ticker {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 20.3px;
+  background: #222;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: auto;
+  font-weight: bold;
+}
+
+.news-ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 28s linear infinite;
+  text-align: center;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.socials {
+  width: 40px;
+  height: 40px;
+  border: 1.7px solid white;
+  border-radius: 50%;
+  gap: 3px;
+  padding: 3px;
+}
+a, .socials{
+  text-decoration: none;
+}
+a{
+  color: white;
+}
+a:hover{
+text-decoration: underline;
+}
+.gallery-button {
+  position: fixed;
+  bottom: 33px;
+  background: white;
+  color: #066785;
+  font-size: larger;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(3, 69, 145, 0.678);
+  cursor: pointer;
+  z-index: 90;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 23px;
+  transition: all 1.0s ease;
+}
+
+.gallery-button:hover {
+  transform: translateY(-3px);
+  background: white;
+  animation: none;
+}
+
+    /* Tooltip styles */
+    .tooltip {
+      position: relative;
+    }
+
+    .tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(41, 40, 40, 0.733) !important;
+      color: rgb(255, 255, 255);
+      padding: 5px 10px;
+      border-radius: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      white-space: nowrap;
+      z-index: 1000;
+    }
+	</style>
+
+<!--Header-->
+<header>
+  <div class="header" id="header">
+<!--School Logo-->
+<a href="#falogo"><img src="media/logo/falogo.png" alt="Faith Academy Logo"></a>
+</div>
+<h1>Faith Academy Day Secondary School, Eket.<br>
+<em>Academic Excellence, Spiritual Prowess & Creativity</em></h1>
+  <div class="home-section">
+  <!--Sliders-->
+  <div class="words">
+  <div class="wordings active">Welcome to Faith Academy, Eket!</div>
+  <div class="wordings">A branch of the Network of FA Schools</div>
+  <div class="wordings">Get the best learning experience from FA Eket</div>
+        <div class="wordings">You're the next to share your stories!</div>
+</div>
+</div>
+</header>
+
+<!--Navigation Buttons-->
+<nav>
+<a style="text-decoration: none;" href="#home"><p><i class="fa-solid fa-home"></i> Home</p></a>
+<a style="text-decoration: none;" href="#about"><p><i class="fa-solid fa-info-circle"></i>  About</p></a>
+<a style="text-decoration: none;" href="#academics"><p><i class="fa-solid fa-book"></i>  Academics</p></a>
+<a style="text-decoration: none;" href="#facilities"><p><i class="fa-solid fa-tools"></i>  Facilities</p></a>
+<a style="text-decoration: none;" href="#admissions"><p><i class="fa-solid fa-mortar-board"></i>  Admissions</p></a>
+<a style="text-decoration: none;" href="#updates" onclick="showUpdates()"><p><i class="fa-solid fa-bullhorn"></i>  Updates</p></a>
+<a style="text-decoration: none;" href="#principal-message"><p><i class="fa-solid fa-envelope-open-text"></i>  The Principal's Message</p></a>
+<a style="text-decoration: none;" href="#contact"><p><i class="fa-solid fa-globe"></i>  Contact Us</p></a>
+</nav>
+
+
+<!--Sections-->
+<section id="home">
+<h2>Welcome to Faith Academy, Eket</h2>
+<p>At Faith Academy Day Secondary School, Eket, we develop academically sound, spiritually grounded and creatively gifted students. Our commitment is to excellence and character in every student journey.</p>
+</section>
+
+<section id="about">
+<h2>About Us</h2>
+<p>Faith Academy was founded to raise a generation of leaders through a balanced approach of education, spirituality and innovation. Located in Eket, Akwa Ibom, we are proud of our excellent track record.</p>
+</section>
+
+<section id="academics">
+<h2>Academic Structure</h2>
+<p>We offer full secondary education from JSS1 to SS3. Our curriculum is guided by national standards and enriched with modern teaching methods.</p>
+<div class="class-range">
+  <div class="class-box">
+    <h3><i class="fa-solid fa-asterisk"></i> JSS1 - JSS3</h3>
+    <ul>
+      <li>Mathematics</li>
+      <li>Basic Science & Tech</li>
+      <li>Business Studies</li>
+      <li>Christian Religious Studies</li>
+      <li>English Language</li>
+      <li>Security Education</li>
+      <li>Ibibio</li>
+                <li>Spiritual Prowess</li>
+      <li>Civic Education</li>
+      <li>Social Studies</li>
+      <li>Home Economics</li>
+      <li>French</li>
+      <li>Music</li>
+      <li>History</li>
+      <li>Physical & Health Education</li>
+      <li>Computer</li>
+      <li>Agric Science</li>
+      <li>Cultural & Creative Arts</li>
+    </ul>
+  </div>
+    <div class="class-box">
+    <h3><i class="fa-solid fa-asterisk"></i> SS1 - SS3 Compulsory</h3>
+    <ul>
+      <li>Mathematics</li>
+      <li>English Language</li>
+      <li>Computer Science</li>
+      <li>Agric Science</li>
+      <li>Spiritual Prowess</li>
+    </ul>
+  </div>
+  <div class="class-box">
+    <h3><i class="fa-solid fa-asterisk"></i> SS1 - SS3 Science</h3>
+    <ul>
+      <li>Physics</li>
+      <li>Chemistry</li>
+      <li>Biology</li>
+      <li>Further Mathematics</li>
+    </ul>
+  </div>
+    <div class="class-box">
+    <h3><i class="fa-solid fa-asterisk"></i> SS1 - SS3 Optional</h3>
+    <ul>
+      <li>Geography</li>
+      <li>Home Management</li>
+      <li>Visual Arts/History/Technical Drawing</li>
+      <li>Data Processing</li>
+    </ul>
+  </div>
+  <div class="class-box">
+    <h3><i class="fa-solid fa-asterisk"></i> SS1 - SS3 Arts/Commercial</h3>
+    <ul>
+      <li>Literature in English</li>
+      <li>Government</li>
+      <li>Commerce</li>
+      <li>Economics</li>
+      <li>Christian Religious Knowledge</li>
+      <li>Accounting</li>
+      <li>Marketing</li>
+            </ul>
+        </div>
+      </div>
+    </section>
+  
+    <section id="facilities">
+      <h2>Facilities & Features</h2>
+      <div class="features">
+        <div class="class-box">
+          <h3><i class="fa-solid fa-asterisk"></i> Modern Classrooms</h3>
+          <p>Well Ventilated & Fully equipped with boards, desks, and digital teaching aids.</p>
+        </div>
+        <div class="class-box">
+          <h3><i class="fa-solid fa-asterisk"></i> Science Laboratories</h3>
+          <p>Physics, Chemistry, and Biology labs designed for practical learning.</p>
+        </div>
+        <div class="class-box">
+          <h3><i class="fa-solid fa-asterisk"></i> Library & ICT Lab</h3>
+          <p>Access to a wealth of academic resources and internet-enabled computers.</p>
+        </div>
+                <div class="class-box">
+          <h3><i class="fa-solid fa-asterisk"></i> Functional Transport Services</h3>
+          <p>Well equiped school buses and transport system.</p>
+        </div>
+                    <div class="class-box">
+          <h3><i class="fa-solid fa-asterisk"></i> Sports Field</h3>
+          <p>Well Equiped Football & Volley Ball Field, Table Tennis/Badminton.</p>
+        </div>
+      </div>
+    </section>
+  
+    <section id="admissions">
+      <h2>Admissions</h2>
+      <p>Admission is open to new students from JSS1 to SS2. Tap the Apply button to apply for admission.<br>Call or visit the School Premises to learn more.</p>
+			<a href="https://admission.eclfcww.org/login"><button>Apply</button></a>
+    </section>
+
+ <div class="overlay" id="overlay">
+ <h2 style="color: white; border-bottom: 2px solid white; text-align: center;">    <button class="back-button" id="backButton" onclick="hideAll()"><i class="fa-solid fa-chevron-left"></i>Back</button>Updates</h2>
+    <div class="carousel" id="carousel">
+      <!-- Slide 1 - Image -->
+      <div class="slide active">
+        <img src="media/images/principal.png" type="image/png" alt="Image 1">
+        <div class="caption">
+          <h2>Mrs Theresa God'swill</h2>
+          <p><strong>Principal, Faith Academy, Eket.</strong></p>
+        </div>
+      </div>
+    
+      <!-- Slide 2 - Video -->
+      <div class="slide">
+        <video muted loop playsinline>
+          <source src="media/videos/" type="video/mp4">
+          Your browser does not support video.
+        </video>
+        <div class="caption">
+          <h2>Sample Video</h2>
+          <p><strong>This video auto-plays when it's in view.</strong></p>
+        </div>
+      </div>
+    
+      <!-- Slide 3 - Image -->
+      <div class="slide">
+        <img src="media/images/" type="image/png" alt="Image 2">
+        <div class="caption">
+          <h2>Welcome to Faith Academy</h2>
+          <p><strong>Academic Excellence, Spiritual Prowess & Creativity</strong></p>
+        </div>
+      </div>
+    
+      <!-- Arrows -->
+      <button class="arrow left" id="prev">&#10094;</button>
+      <button class="arrow right" id="next">&#10095;</button>
+    </div>
+    
+    <!-- Dots -->
+    <div class="dots" id="dots"></div>
+    
+    <!-- News Ticker -->
+    <div class="news-ticker">
+      <span>Welcome to the official site of Faith Academy, Eket. Get to know about our school and apply for admissions. | For SS2 students, Akwa Ibom State Promotional Exams(MOCK) timetable is out, and it will be up from Tuesday 22nd July to Thursday 31st July, 2025. | Glory to God, this session 2024/2025 has succesfully ended. Graduation/Prize Giving Day comes up on 26th July,2025. | Thanks to our parents for their continous support to making this outgoing academic session a success.</span>
+    </div>
+
+        <!--Gallery Button-->
+        <a href="#memories">
+        <button style="border-radius: 10px 0 10px 0;" class="gallery-button" id="galleryButton" onclick="showGallery()">
+          <i class="fa-solid fa-images tooltip" data-tooltip="Memories"></i>
+        </button>
+        </a>
+  </div>
+
+    <div class="gallery" id="gallery">
+      <h2 style="text-align: center; border-bottom: 2px solid white;">  <button class="back-button" id="backButton" onclick="hideGallery()"><i class="fa-solid fa-chevron-left"></i>Back</button>    Memories</h2>
+      <p style="opacity: 0.9; font-weight: bold; text-align: center;"><strong>Exhibiting our excellent track record in pictures</strong></p>
+    </div>
+
+    <!-- Principal's Message Section -->
+    <section id="principal-message">
+      <h2><u>The Principal's Message</u></h2>
+      <p>
+
+				<img src="media/images/principal.png" type="image/png" alt="Principal's Image">
+        In Faith Academy Eket, we believe that every child is a unique gift with immense potential waiting to be unlocked. Our mission is to nurture academic excellence, spirituality, and creativity in each student. We are committed to creating a safe and inspiring learning environment that fosters intellectual curiosity and moral integrity.<br><br>
+  
+        Through dedicated teaching staff, modern facilities, and a comprehensive curriculum, we prepare our students not only to excel in exams but also to become responsible and compassionate leaders of tomorrow. We encourage our pupils to explore their talents,
+        embrace challenges, and develop a lifelong love for learning.<br><br>
+
+  As the principal, I am proud of our school’s rich tradition of discipline, respect, and community spirit. Together with parents and guardians, we work hand-in-hand to ensure every student thrives academically and socially. Our students’ achievements in academics, sports, and arts stand as a testament to the hard work and commitment that defines the global trademark of Faith Academy.<br><br>
+
+  We invite you to be part of this vibrant community where values and knowledge go hand in hand. Join us in shaping a brighter future for our children, empowered with the wisdom and courage to make positive impacts in the world.<br><br>
+  <!--Principal's Name-->
+                    <h3>Mrs. Theresa God'swill<br>
+                Principal, Faith Academy, Eket.</h3>
+</p>
+</section>
+
+<!--Contact Info-->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p><i class="fa-solid fa-location"></i> Address: Km 6 Eket Oron Road, Ikot Udota, Eket, Akwa Ibom State, Nigeria</p>
+  <p><i class="fa-solid fa-phone"></i> Phone: 07032478534, 09044971713, 07031146526</p>
+  <p><i class="fa-solid fa-envelope"></i> Email: fadseket2011@gmail.com</p>
+  <p class="more-info"><i class="fa-solid fa-globe"></i> For more info about Faith Academy Network of Schools, visit <a href="https://eclfcww.org">www.eclfcww.org</a></p>
+  <a style="text-decoration: none;" href="https://facebook.com">
+  <img src="media/logo/facebook.png" alt="Facebook Logo" class="socials" type="image/png">
+  </a>
+  <a style="text-decoration: none;" href="https://instagram.com">
+  <img src="media/logo/instagram.png" alt="Instagram Logo" class="socials" type="image/png">
+  </a>
+  <a style="text-decoration: none;" href="https://x.com">
+  <img src="media/logo/x.png" alt="X Logo" class="socials" type="image/png">
+  </a>
+  <a style="text-decoration: none;" href="https://linkedin.com">
+  <img src="media/logo/linkedin.png" alt="LinkedIn Logo" class="socials" type="image/png">
+  </a>
+	<a style="text-decoration: none;" href="https://whatsapp.com/channel/0029Vb6D5gZElagrhGq6ey0r">
+  <img src="media/logo/whatsapp.png" alt="WhatsApp Logo" class="socials" type="image/png">
+  </a>
+  <a style="text-decoration: none;" href="https://t.me/Ps2dz">
+  <img src="media/logo/telegram.png" alt="Telegram Logo" class="socials" type="image/png">
+  </a>
+  </section>
+
+<!--Copyrights-->
+<footer>
+<p><strong>&copy; 2025 Faith Academy Day Secondary School, Eket</strong></p>
+</footer>
+
+	<script>
+// Slide functionality
+let current = 0;
+const subtitle = document.querySelectorAll('.wordings');
+setInterval(() => {
+subtitle[current].classList.remove('active');
+current = (current + 1) % subtitle.length;
+subtitle[current].classList.add('active');
+}, 10000); // 10 seconds
+
+function hideAll() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("gallery").style.display = "none";
+}
+
+function showUpdates() {
+   hideAll();
+   document.getElementById("overlay").style.display = "block";
+ }
+
+ function hideUpdates() {
+  document.getElementById("overlay").style.display = "block";
+}
+function showGallery() {
+   document.getElementById("gallery").style.display = "block";
+ }
+ function hideGallery() {
+  document.getElementById("gallery").style.display = "none";
+}
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+let currents = 0;
+let autoScroll;
+
+// Create dots
+slides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+const dots = document.querySelectorAll('.dot');
+
+function updateSlides() {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currents);
+    const video = slide.querySelector('video');
+    if (video) {
+      if (i === currents) {
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    }
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currents);
+  });
+}
+
+function goToSlide(index) {
+  currents = (index + slides.length) % slides.length;
+  updateSlides();
+}
+
+function nextSlide() {
+  goToSlide(currents + 1);
+}
+
+function prevSlide() {
+  goToSlide(currents - 1);
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+function startAutoScroll() {
+  autoScroll = setInterval(nextSlide, 10000); // 10 sec
+}
+
+function stopAutoScroll() {
+  clearInterval(autoScroll);
+}
+
+startAutoScroll();
+updateSlides();
+</script>
+</body>
+</html>
